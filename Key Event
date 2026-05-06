@@ -1,38 +1,57 @@
 import java.awt.*;
+
 import java.awt.event.*;
-import javax.swing.*;
 
-public class KeyEventApplet extends JFrame implements KeyListener {
-    private JLabel label;
+import javax.swing.*; 
 
-    public KeyEventApplet() {
-        setTitle("Key Event Demo");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
+public class KeyEventApplet extends JFrame implements KeyListener { private JLabel label; 
 
-        label = new JLabel("Press any key...");
-        label.setFont(new Font("Arial", Font.BOLD, 16));
-        add(label);
+public KeyEventApplet() { 
 
-        addKeyListener(this);
-        setFocusable(true);
-        setVisible(true);
-    }
+// Set up JFrame properties 
 
-    public void keyPressed(KeyEvent e) {
-        label.setText("Key Pressed: " + e.getKeyChar());
-    }
+setTitle("Key Event Demo"); 
 
-    public void keyReleased(KeyEvent e) {
-        label.setText("Key Released: " + e.getKeyChar());
-    }
+setSize(400, 300); 
 
-    public void keyTyped(KeyEvent e) {
-        label.setText("Key Typed: " + e.getKeyChar());
-    }
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setLayout(new FlowLayout()); 
 
-    public static void main(String[] args) {
-        new KeyEventApplet();
-    }
+// Label to display key event status 
+
+label = new JLabel("Press any key..."); 
+
+label.setFont(new Font("Arial", Font.BOLD, 16)); add(label); 
+
+// Add KeyListener to the frame 
+
+addKeyListener(this); 
+
+setFocusable(true); 
+
+setVisible(true); 
+
+} 
+
+@Override 
+
+public void keyPressed(KeyEvent e) {
+
+label.setText("Key Pressed: " + e.getKeyChar()); } 
+
+@Override 
+
+public void keyReleased(KeyEvent e) { label.setText("Key Released: " + e.getKeyChar()); } 
+
+@Override 
+
+public void keyTyped(KeyEvent e) { 
+
+label.setText("Key Typed: " + e.getKeyChar()); } 
+
+public static void main(String[] args) { 
+
+new KeyEventApplet(); 
+
+} 
+
 }
