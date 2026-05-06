@@ -1,0 +1,47 @@
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class ReportCards extends JFrame {
+    JTextField tname, tMath, tScience, tEnglish;
+
+    public ReportCards() {
+        JPanel jp = new JPanel();
+
+        jp.add(new JLabel("Enter Name"));
+        tname = new JTextField(20);
+        jp.add(tname);
+
+        jp.add(new JLabel("Math"));
+        tMath = new JTextField(20);
+        jp.add(tMath);
+
+        jp.add(new JLabel("Science"));
+        tScience = new JTextField(20);
+        jp.add(tScience);
+
+        jp.add(new JLabel("English"));
+        tEnglish = new JTextField(20);
+        jp.add(tEnglish);
+
+        JButton submit = new JButton("Submit");
+        jp.add(submit);
+
+        add(jp);
+
+        submit.addActionListener(e -> {
+            int sum = Integer.parseInt(tMath.getText())
+                    + Integer.parseInt(tScience.getText())
+                    + Integer.parseInt(tEnglish.getText());
+
+            float avg = sum / 3;
+            JOptionPane.showMessageDialog(this, "Average = " + avg);
+        });
+    }
+
+    public static void main(String[] args) {
+        ReportCards r = new ReportCards();
+        r.setSize(300, 400);
+        r.setVisible(true);
+    }
+}
